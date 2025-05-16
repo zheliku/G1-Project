@@ -8,9 +8,6 @@ public class SymbolGenerator : MonoBehaviour
     
     // List of game objects representing different symbols
     public List<GameObject> Symbols;
-        
-    // The direction in which symbols move after generation
-    public Vector3 MoveDirection = Vector3.forward;
     
     // List of time points for generating symbols
     public List<float> TimeTiks;
@@ -52,11 +49,12 @@ public class SymbolGenerator : MonoBehaviour
             var inst  = Instantiate(obj); // copy one object
             
             // Set the position of the generated symbol to a random position from GeneratePoses
-            inst.transform.position = GeneratePoses[Random.Range(0, GeneratePoses.Count)].position;
+            var generateTrans = GeneratePoses[Random.Range(0, GeneratePoses.Count)];
+            inst.transform.position = generateTrans.position;
             inst.SetActive(true);
             
             // Set the forward direction of the symbol to the predefined movement direction
-            inst.transform.forward  = MoveDirection;
+            inst.transform.forward  = generateTrans.forward;
     
             // Move to the next generation time point
             TikIndex++;

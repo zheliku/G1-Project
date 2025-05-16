@@ -8,6 +8,8 @@ public class Symbol : MonoBehaviour
     
     // Reference to the Rigidbody component of the game object
     public Rigidbody Body;
+
+    public GameObject FX;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
